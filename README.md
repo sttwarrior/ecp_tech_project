@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Prerequisite
+Add the API key to your sessionStorage by running: sessionStorage.setItem("ECP_API_KEY", "<YOUR_API_KEY>")
+
 ## Available Scripts
 
 In the project directory, you can run:
