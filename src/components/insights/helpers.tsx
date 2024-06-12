@@ -1,5 +1,7 @@
 import { InsightDatapoint } from './types';
+import { Flex, Text } from '@adobe/react-spectrum';
 import { Campaign, CreativeKeys } from '../campaign/types';
+import { ScatterChartDatum } from './types';
 
 export const dataPrep = (campaigns: Campaign[]): InsightDatapoint[] => {
 	const creatives = campaigns.flatMap(campaign => campaign.creatives);
@@ -14,3 +16,12 @@ export const dataPrep = (campaigns: Campaign[]): InsightDatapoint[] => {
 
 	return data.filter(d => d.spend && d.clicks);
 }
+
+export const toolTipRenderer = ({ event, segment, spend, clicks }: ScatterChartDatum) => (
+	<Flex direction="column">
+			<Text UNSAFE_className="tooltipHeader">{event}</Text>
+			<Text>Channel: {segment}</Text>
+			<Text>Clicks: {clicks}</Text>
+			<Text>Spend: {spend}</Text>
+	</Flex>
+);

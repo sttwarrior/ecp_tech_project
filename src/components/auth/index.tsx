@@ -1,4 +1,3 @@
-// src/contexts/AuthContext.tsx
 import React, { ReactNode, createContext } from 'react';
 import { useGetAuthorization } from '../../services/query';
 import { ProgressCircle } from '@adobe/react-spectrum'

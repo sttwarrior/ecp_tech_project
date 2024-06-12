@@ -7,9 +7,11 @@ import {
 	Scatter, 
 	TrendlineAnnotation, 
 	TrendlineProps,
+	ChartTooltip,
 } from '@adobe/react-spectrum-charts';
 import { Campaign } from '../campaign/types';
-import { dataPrep } from './helpers';
+import { dataPrep, toolTipRenderer } from './helpers';
+import { ScatterChartDatum } from './types';
 
 const trendlineProps: TrendlineProps = {
 	method: 'average',
@@ -37,6 +39,9 @@ export default memo(
 				<Trendline {...trendlineProps} displayOnHover color="gray-900" orientation="vertical">
 					<TrendlineAnnotation prefix="Average spend" numberFormat=".2s" />
 				</Trendline>
+				<ChartTooltip>
+					{({ event, segment, spend, clicks }) => toolTipRenderer({ event, segment, spend, clicks } as ScatterChartDatum)}
+				</ChartTooltip>
 			</Scatter>
 			<Legend position="bottom" highlight />
 		</Chart>
